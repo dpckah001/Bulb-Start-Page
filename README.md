@@ -22,7 +22,7 @@ Click the Load Unzipped Extension button, find the downloaded "Bulb-Start-page" 
 ### Step 4
 Click to enable the "Bulb-Start-page" extension, create a new tab, and select Keep Changes in the browser pop-up.
 ### Step 5
-Installation Complete***
+***Installation Complete***
 
 > You can change the configuration with VScode or Sublime Text, etc., and we provide more detailed comments.
 ## Code
@@ -223,3 +223,64 @@ body {
 ```
 > script.js
 ```js
+// Get references to the DOM elements
+const lightbulb = document.getElementById('lightbulb'); // The lightbulb element
+const searchInput = document.getElementById('searchInput'); // The search input field
+const searchButton = document.getElementById('searchButton'); // The search button
+const body = document.body; // The body element
+
+/**
+ * Triggers the search animation and performs a search after the animation completes.
+ * @param {Function} callback - A callback function to execute after the animation.
+ */
+function triggerSearchAnimation(callback) {
+    lightbulb.classList.add('light-up'); // Add the light-up class to the lightbulb
+
+    // Create a new ripple element
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple'; // Set the class of the ripple element
+    const rippleEffect = document.querySelector('.ripple-effect'); // Get the ripple effect container
+    rippleEffect.appendChild(ripple); // Append the ripple to the ripple effect container
+
+    // Position the ripple over the lightbulb
+    const rect = lightbulb.getBoundingClientRect();
+    ripple.style.left = `${rect.left + rect.width / 2}px`;
+    ripple.style.top = `${rect.top + rect.height / 2}px`;
+
+    // Change the background and text color of the body
+    body.style.backgroundColor = '#ffffff';
+    body.style.color = '#000000';
+
+    // After 1 second, remove the ripple and reset the background and text color
+    setTimeout(function() {
+        rippleEffect.removeChild(ripple);
+        body.style.backgroundColor = '';
+        body.style.color = '';
+        if (callback) callback();  // Execute the callback function after the animation
+    }, 1000);
+}
+
+/**
+ * Performs a search using Bing with the given query.
+ * @param {string} query - The search query.
+ */
+function performSearch(query) {
+    const bingSearchUrl = `https://www.bing.com/search?q=${encodeURIComponent(query)}`; // Construct the Bing search URL
+    window.open(bingSearchUrl, '_blank'); // Open the URL in a new tab
+}
+
+// Add an event listener to the search button
+searchButton.addEventListener('click', function() {
+    triggerSearchAnimation(() => performSearch(searchInput.value)); // Trigger the search animation and perform the search
+});
+
+// Add an event listener to the search input for the Enter key press
+searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        triggerSearchAnimation(() => performSearch(searchInput.value)); // Trigger the search animation and perform the search
+    }
+});
+```
+
+## Contact
+If you find a bug or suggestion, please send an email to 'dolp666999@gmail.com'.
