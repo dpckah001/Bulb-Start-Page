@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Bulb-Start-page",
+    "version": "1.0",
+    "description": "Lightbulb search interface with animation and integrated Bing search.",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+    "permissions": [
+      "activeTab"
+    ],
+    "chrome_url_overrides":{
+      "newtab":"popup.html"
+    }
+  }
+  
