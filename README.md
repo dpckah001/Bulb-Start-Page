@@ -1,5 +1,9 @@
 # LightBulb StartPage
-> LightBulb StartPage is a personalized start page extension built just for you that will provide you with a simple yet elegant interface that will make you feel the warm glow every time you open your browser.
+> LightBulb StartPage is a personalized start page extension built just for you that will provide you with a simple yet elegant interface that will make you feel the warm glow every time you open your browser.  
+
+> Demo images  
+
+![/Bulb-Start-Page/](BulbStartPage.PNG)
 
 ## Features
 > Minimalist design: A black background with white text creates a peaceful and comfortable browsing environment while reducing eye strain.
