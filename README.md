@@ -285,6 +285,7 @@ searchInput.addEventListener('keypress', function(e) {
     }
 });
 ```
+## Tip: The free version of the icon provided by font awesome.
 
 ## Contact
 If you find a bug or suggestion, please send an email to 'dolp666999@gmail.com'.
